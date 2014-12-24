@@ -1,4 +1,5 @@
 Template.home.rendered = function(){
+	console.log(Colleges.find().fetch());
   $(".university-select").select2({
     placeholder: 'Select Your University',
     data: Colleges.find().map(function(doc){
@@ -11,10 +12,8 @@ Template.home.rendered = function(){
 Template.home.events({
 	'change .university-select': function(e){
 		var chosenUniversity = $(".university-select").select2("data");	
-		//Chose university _id and name available
-		Session.set("university", chosenUniversity);
-		Session.set("universityName", chosenUniversity.text);
+		//Chosen university _id and name available
 		var routeParameters = {universityId: chosenUniversity.id};
-		Router.go("universityHome", routeParameters);
+		Router.go("home", routeParameters);
 	}
 })
