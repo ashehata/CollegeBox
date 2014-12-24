@@ -52,5 +52,11 @@ Template.universityHome.helpers({
 	},
 	universityName: function(){
 		return Colleges.findOne({_id: Router.current().params.universityId}).name;
+	},
+	className: function(){
+		return Router.current().params.className || "Please select a class to get started";
+	},
+	currentUniversityId: function(){
+		return Router.current().params.universityId;
 	}
 })
