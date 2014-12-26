@@ -50,6 +50,8 @@ insertFile = function(filename, md5, semester, className, universityId) {
       timestamp: new Date(),
       semester: semester,
       universityId: universityId,
-      className: className
+      className: className,
+      season: season.substr(0, season.indexOf('2')),
+      year: season.substr(season.indexOf('2'))
     });
   }

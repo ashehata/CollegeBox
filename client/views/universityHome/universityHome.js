@@ -103,6 +103,9 @@ Template.semester.helpers({
 	tooltipText: function(){
  	  Meteor.defer(function(){$('.upload-tooltip').tooltip('fixTitle');})
 	  return "Upload material to " + Router.current().params.className + " (" + this.season + "-" + this.year + ")";
+	},
+	universityId: function(){
+		return Router.current().params.universityId;
 	}
 
 })
@@ -129,7 +132,13 @@ Template.universityHome.helpers({
 	},
 	semesters: function(){
 		return Colleges.findOne({_id: Router.current().params.universityId}).semesters;
+	},
+	classSelected: function(){
+		if (Router.current().params.className)
+			return true;
+		return false;
 	}
+
 })
 
 Template.universityHome.rendered = function(){
@@ -154,3 +163,8 @@ uploadFile = function(file, semester, className, universityId) {
   return reader.readAsArrayBuffer(file);
 };
 
+Template.homeFeed.helpers({
+	feedFiles: function(){
+		return Files.find({universityId: Router.current().params.universityId});
+	}
+})

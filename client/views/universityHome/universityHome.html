@@ -28,6 +28,7 @@
           <ul class="nav nav-sidebar">
             <li class="active"><h2>Classes <br> <span class="btn btn-primary add-class-btn">Add A Class</span></h2></li>
             <input type="text" class="form-control search-class" style="margin:auto;width:auto;" placeholder="Search for a Class">
+            <li><a href="/home/{{currentUniversityId}}/">View All Classes</a></li>
             {{#each classes}}
             <li><a href="/home/{{currentUniversityId}}/{{name}}">{{name}}</a></li>
           {{/each}}
@@ -35,6 +36,7 @@
 
 </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        {{#if classSelected}}
           <h1 class="page-header">{{className}}</h1>
           {{#each semesters}}
             {{>semester}}
@@ -42,6 +44,10 @@
           <div style="margin:auto;">
           <h2> <span class="btn btn-primary add-semester-btn">Add A Semester</span></h2>
           </div>
+        {{else}}
+          <h1 class="page-header">Select a Class to Find specific Files</h1>
+          {{>homeFeed}}
+        {{/if}}
 </div>
 
 </template>
@@ -54,11 +60,23 @@
     <th> Uploaded By </th>
     {{#each files}}
     <tr>
-    <td> {{filename}} </td>
+    <td> <a href="/download/{{universityId}}/{{../season}}{{../year}}/{{className}}/{{filename}}" target="_blank">{{filename}} </a></td>
     <td> Owner </td>
     </tr>
     {{/each}}
     </table>
+</template>
+
+<template name="homeFeed">
+{{#each feedFiles}}
+<div class="panel panel-default">
+  <div class="panel-heading">{{uploader}} added a file in 
+    <a href="/home/{{universityId}}/{{className}}">{{className}} </a>({{semester}})</div>
+  <div class="panel-body">
+    <a href="/download/{{universityId}}/{{../season}}{{../year}}/{{className}}/{{filename}}" target="_blank">{{filename}} </a>
+  </div>
+</div>
+{{/each}}
 </template>
 
 
@@ -91,10 +109,16 @@
               <option value="winter">Winter</option>
             </select>
             <select class="year">
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012" >2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
               <option value="2015" selected>2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
             </select>
         </div>
       </div>
