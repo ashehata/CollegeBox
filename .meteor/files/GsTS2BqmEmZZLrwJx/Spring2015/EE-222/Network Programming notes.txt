@@ -1,0 +1,140 @@
+== Network Programming ==
+11/17/2014
+
+Programmer's View of the Internet
+	* Hosts mapped to set of 32-bit IP addresses
+	* The set of IP addresses is mapped to a set of identifiers called domain names.
+	* A process on one internet host can communicate with a process on another
+	  internet host over a connection.
+	  
+IP Addresses
+	* IP addresses always stored in memory in network byte orter.
+	* True in general for any integer transfered in a packet header from one machine to
+	  another.
+	  
+	  Useful network byte order conversion functions ("l"=32bit, "s" = 16bit)
+	  	- htonl : uint32_T from host to network byte order
+	  	- htons : uint16_t from host to network
+	  	- ntohl : network to host
+	  	- ntohs : network to host
+	  	
+Dotted decimal Notation
+	* IP Address: 0x8002C2F2 = 128.2.194.242
+	
+Functions for converting between binary IP addr and dotted decimal strings
+
+Internet Connections
+	* Clients and servers communicate by sending streams of bytes of connections:
+		- Point-to-point, full-duplex and reliable.
+		
+	* Socket - endpoint of a connection.
+		- Socket address is an IPaddress:port pair
+	
+	* A port is a 16-bit integer that identifies a process:
+		- Ephemeral port: Assigned automatically on client when client makes a conn.
+		  request.
+		- Well-known port: Associated with some service provided by a server (e.g. 80)
+	
+	* Connection uniquely ID'd by the socket address of its endpoints (socket pair)
+		* (cliaddr:cliport, servaddr, servport)
+	
+
+What is a Socket?
+	* To the kernel, a socket is an endpoint of communication.
+	* To an application, a socket is a file descriptor that lets the application
+	  read/write from/to the network
+	  	- Remember: All Unix I/O devices, including networks, are modeled as files
+	  
+	* Clients and servers communicate with each other by reading from and writing to
+	  socket descriptors
+	  
+Socket Address Structures
+
+ 	* Generic socket address:
+ 		- for address arguments to connect, bind, and accept
+ 		- necessary because C did not have void pointers when sockets interface was
+ 		  designed
+ 		 
+ 		struct sockaddr {
+ 			unsigned short  sa_family;
+ 			char			sa_data[14];
+ 		};
+ 		         sin_port
+ 		[___|___|___|___|___|___|___|___|_0_|_0_|_0_|_0_|_0_|_0_|_0_|_0_]
+ 		 AF_INET         <---sin_addr-->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

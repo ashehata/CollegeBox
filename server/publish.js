@@ -5,3 +5,7 @@ Meteor.publish("colleges", function(){
 Meteor.publish("classes", function(){
 	return Classes.find();
 });
+
+Meteor.publish("files", function(){
+	return Files.find();
+})

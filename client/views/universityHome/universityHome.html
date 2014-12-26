@@ -37,13 +37,28 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">{{className}}</h1>
           {{#each semesters}}
-          <h2 class="sub-header">{{season}} {{year}} <a class="fa fa-cloud-upload" href="#" data-toggle="tooltip" data-placement="right" title="Upload material to {{className}} ({{season}}-{{year}})"></a></h2>
+            {{>semester}}
           {{/each}}
           <div style="margin:auto;">
           <h2> <span class="btn btn-primary add-semester-btn">Add A Semester</span></h2>
           </div>
 </div>
 
+</template>
+
+<template name = "semester">
+    <input type="file" class="file-uploader" style="display:none">
+    <h2 class="sub-header">{{season}} {{year}} <a class="fa fa-cloud-upload select-btn" href="#" data-toggle="tooltip" data-placement="right" title="Upload material to {{className}} ({{season}}-{{year}})"></a> <br> <span class="selected-file"></span> <span class="btn btn-success upload-btn" style="display:none">Upload</span></h2>
+    <table class="table table-striped">
+    <th> Filename </th>
+    <th> Uploaded By </th>
+    {{#each files}}
+    <tr>
+    <td> {{filename}} </td>
+    <td> Owner </td>
+    </tr>
+    {{/each}}
+    </table>
 </template>
 
 

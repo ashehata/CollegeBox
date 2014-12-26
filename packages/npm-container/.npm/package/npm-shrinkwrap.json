@@ -1,0 +1,55 @@
+{
+  "dependencies": {
+    "MD5": {
+      "version": "1.2.1",
+      "dependencies": {
+        "charenc": {
+          "version": "0.0.1"
+        },
+        "crypt": {
+          "version": "0.0.1"
+        }
+      }
+    },
+    "exec-sync": {
+      "version": "0.1.6",
+      "dependencies": {
+        "ffi": {
+          "version": "1.2.5",
+          "dependencies": {
+            "bindings": {
+              "version": "1.2.1"
+            },
+            "debug": {
+              "version": "2.1.0",
+              "dependencies": {
+                "ms": {
+                  "version": "0.6.2"
+                }
+              }
+            },
+            "ref": {
+              "version": "0.3.2",
+              "dependencies": {
+                "debug": {
+                  "version": "1.0.4",
+                  "dependencies": {
+                    "ms": {
+                      "version": "0.6.2"
+                    }
+                  }
+                },
+                "nan": {
+                  "version": "1.2.0"
+                }
+              }
+            },
+            "ref-struct": {
+              "version": "1.0.0"
+            }
+          }
+        }
+      }
+    }
+  }
+}

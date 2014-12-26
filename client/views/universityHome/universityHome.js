@@ -66,6 +66,43 @@ Template.universityHome.events({
 	}
 })
 
+Template.semester.events({
+	'change .file-uploader': function(e, tmpl){
+		var file = tmpl.find(".file-uploader").files[0];
+		var selectedFileName = tmpl.find(".selected-file");
+		$(selectedFileName).text(file.name).show();
+		if (file.name){
+			$(tmpl.find(".upload-btn")).show();
+		}
+		else{
+			$(tmpl.find(".upload-btn")).hide();
+		}
+	},
+	'click .select-btn': function(e, tmpl){
+		console.log(this);
+		tmpl.find('.file-uploader').click();
+	},
+	'click .upload-btn': function(e, tmpl){
+		var file = tmpl.find(".file-uploader").files[0];
+		uploadFile(file, this.season + this.year, Router.current().params.className, Router.current().params.universityId);
+		$(tmpl.find(".upload-btn")).hide();
+		$(tmpl.find(".selected-file")).hide();
+
+	}
+})
+
+Template.semester.helpers({
+	files: function(){
+		return Files.find({
+			universityId: Router.current().params.universityId,
+			semester: this.season + this.year,
+			className: Router.current().params.className
+		});
+	
+	}
+
+})
+
 Template.universityHome.helpers({
 	classes: function(){
 		var results;
@@ -94,3 +131,23 @@ Template.universityHome.helpers({
 Template.universityHome.rendered = function(){
   $('[data-toggle="tooltip"]').tooltip();
 }
+
+
+var uploadFile;
+
+uploadFile = function(file, semester, className, universityId) {
+  var reader, uploaded;
+  console.log(file);
+  uploaded = false;
+  reader = new FileReader;
+  reader.onloadend = function(e) {
+    var blob;
+    console.log("File read!!");
+    blob = new Uint8Array(this.result);
+    Meteor.call("upload", file.name, blob, semester, className, universityId);
+    $('.fileselect').val('');
+    Session.set("selectedFileName", "File Uploaded Successfully");
+  };
+  return reader.readAsArrayBuffer(file);
+};
+
