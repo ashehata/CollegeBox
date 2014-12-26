@@ -99,6 +99,10 @@ Template.semester.helpers({
 			className: Router.current().params.className
 		});
 	
+	},
+	tooltipText: function(){
+ 	  Meteor.defer(function(){$('.upload-tooltip').tooltip('fixTitle');})
+	  return "Upload material to " + Router.current().params.className + " (" + this.season + "-" + this.year + ")";
 	}
 
 })
@@ -129,7 +133,6 @@ Template.universityHome.helpers({
 })
 
 Template.universityHome.rendered = function(){
-  $('[data-toggle="tooltip"]').tooltip();
 }
 
 

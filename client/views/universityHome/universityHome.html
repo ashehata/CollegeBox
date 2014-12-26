@@ -48,7 +48,7 @@
 
 <template name = "semester">
     <input type="file" class="file-uploader" style="display:none">
-    <h2 class="sub-header">{{season}} {{year}} <a class="fa fa-cloud-upload select-btn" href="#" data-toggle="tooltip" data-placement="right" title="Upload material to {{className}} ({{season}}-{{year}})"></a> <br> <span class="selected-file"></span> <span class="btn btn-success upload-btn" style="display:none">Upload</span></h2>
+    <h2 class="sub-header">{{season}} {{year}} <a class="fa fa-cloud-upload select-btn upload-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="{{tooltipText}}"></a> <br> <span class="selected-file"></span> <span class="btn btn-success upload-btn" style="display:none">Upload</span></h2>
     <table class="table table-striped">
     <th> Filename </th>
     <th> Uploaded By </th>
