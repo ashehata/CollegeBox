@@ -17,3 +17,7 @@ meteorhacks:npm
 
 
 npm-container
+accounts-base
+accounts-ui
+accounts-password
+raix:ui-dropped-event

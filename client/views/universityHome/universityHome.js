@@ -88,6 +88,15 @@ Template.semester.events({
 		$(tmpl.find(".upload-btn")).hide();
 		$(tmpl.find(".selected-file")).hide();
 
+	},
+	'dropped .sub-header': function(e){
+		console.log("Dropped file");
+		console.log(e);
+    	e.preventDefault();
+    	e.stopPropagation();
+    	var files = event.originalEvent.dataTransfer.files;
+    	console.log(files);
+
 	}
 })
 

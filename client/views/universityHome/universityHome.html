@@ -12,6 +12,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">{{>loginButtons}}</a></li>
+
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
@@ -54,7 +56,7 @@
 
 <template name = "semester">
     <input type="file" class="file-uploader" style="display:none">
-    <h2 class="sub-header">{{season}} {{year}} <a class="fa fa-cloud-upload select-btn upload-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="{{tooltipText}}"></a> <br> <span class="selected-file"></span> <span class="btn btn-success upload-btn" style="display:none">Upload</span></h2>
+    <h2 class="sub-header">{{season}} {{year}} <a class="fa fa-cloud-upload select-btn upload-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="{{tooltipText}}"><h6 style="display: inline;"> click or drop file here to upload </h6></a><br><br> <span class="selected-file"></span><span class="btn btn-success upload-btn" style="display:none"> Upload</span></h2>
     <table class="table table-striped">
     <th> Filename </th>
     <th> Uploaded By </th>
@@ -73,7 +75,7 @@
   <div class="panel-heading">{{uploader}} added a file in 
     <a href="/home/{{universityId}}/{{className}}">{{className}} </a>({{semester}})</div>
   <div class="panel-body">
-    <a href="/download/{{universityId}}/{{../season}}{{../year}}/{{className}}/{{filename}}" target="_blank">{{filename}} </a>
+    <a href="/download/{{universityId}}/{{season}}{{year}}/{{className}}/{{filename}}" target="_blank">{{filename}} </a>
   </div>
 </div>
 {{/each}}

@@ -51,7 +51,7 @@ insertFile = function(filename, md5, semester, className, universityId) {
       semester: semester,
       universityId: universityId,
       className: className,
-      season: season.substr(0, season.indexOf('2')),
-      year: season.substr(season.indexOf('2'))
+      season: semester.substr(0, semester.indexOf('2')),
+      year: semester.substr(semester.indexOf('2'))
     });
   }
